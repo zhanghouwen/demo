@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo1.dao.SysNewsMapper">
+	<select id="checkLogin"
+		resultType="com.example.demo.model.SysNews">
+		select id,name,pass
+		from sys_news where name =#{name}
+		and pass = #{pass}
+	</select>
+</mapper>

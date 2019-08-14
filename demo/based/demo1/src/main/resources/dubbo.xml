@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+     http://dubbo.apache.org/schema/dubbo
+     http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+<!--edas-->
+ <dubbo:application name="provider"/>
+	<dubbo:protocol name="dubbo" port="28082"/>
+    <dubbo:registry  address="edas://10.97.1.37:8080"/>
+	<dubbo:service interface="com.example.demo.service.SysNewService" ref="sysNewService"/>
+	<bean id="sysNewService" class="com.example.demo1.service.SysNewServiceImpl"/>
+	<dubbo:service interface="com.example.demo.service.EchartsService" ref="echartsService"/>
+	<bean id="echartsService" class="com.example.demo1.service.EchartsServiceImpl"/> 
+	<!--zookeeper-->
+	<!-- <dubbo:application name="provider"/>
+    <dubbo:registry address="zookeeper://127.0.0.1:8880"/> -->
+   
+<!-- 	 <dubbo:config-center address="zookeeper://10.97.1.35:2181"/>-->
+    <!-- <dubbo:metadata-report address="zookeeper://127.0.0.1:8880"/>
+	
+	<dubbo:protocol name="dubbo" port="20880"/> 
+	<bean id="sysNewService" class="com.example.demo1.service.SysNewServiceImpl"/>
+	<dubbo:service interface="com.example.demo1.service.SysNewService" ref="sysNewService"/>
+	<bean id="echartsService" class="com.example.demo1.service.EchartsServiceImpl"/>
+	<dubbo:service interface="com.example.demo.service.EchartsService" ref="echartsService"/> -->
+	
+</beans>

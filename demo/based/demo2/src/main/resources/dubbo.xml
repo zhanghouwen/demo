@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+     http://dubbo.apache.org/schema/dubbo
+     http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+<!--	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"-->
+<!--edas-->
+     <dubbo:application name="customer"/>
+	<dubbo:consumer check="false" />
+	<dubbo:protocol name="dubbo" port="28082"/>
+	<dubbo:registry id="edas" address="edas://10.97.1.37:8080"/>
+    <dubbo:reference id="sysNewService" interface="com.example.demo.service.SysNewService" check="false"/>
+    <dubbo:reference id="echartsService" interface="com.example.demo.service.EchartsService" check="false"/>
+	<dubbo:annotation package="com.example.demo2.controller"/> 
+	<!--zookeeper-->
+<!-- 	<dubbo:application name="consumer"/>
+	  <dubbo:registry address="zookeeper://127.0.0.1:8880"/> -->
+<!-- 	<dubbo:config-center address="zookeeper://10.97.1.35:2181"/>
+	<dubbo:metadata-report address="zookeeper://10.97.1.35:2181"/> 7770-->
+	<!-- <dubbo:protocol name="dubbo" port="20880"/>
+	<dubbo:reference id="SysNewService" interface="com.example.demo1.service.SysNewService"/>
+    <dubbo:reference id="echartsService" interface="com.example.demo.service.EchartsService" />
+	<dubbo:annotation package="com.example.demo2.controller"/>  -->
+</beans>
